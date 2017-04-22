@@ -1,0 +1,2 @@
+将dmc-shared发布到私服：替换下面命令中的版本号即可
+mvn deploy:deploy-file -Dfile=dmc-shared-20160704.jar -DgroupId=com.ihangmei -DartifactId=dmc-shared -Dversion=20160704 -Dpackaging=jar -Durl=http://maven.ihangmei.com:8081/nexus/content/repositories/releases/ -DrepositoryId=releases

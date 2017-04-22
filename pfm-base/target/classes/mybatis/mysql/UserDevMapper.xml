@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hailong.base.dao.PFMUserDao">
+ <insert id="addPfmUserDao" parameterType="com.hailong.base.entity.PfmUsers">
+    insert into pfm_users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+     
+      <if test="pfm_user_name != null">
+        pfm_user_name,
+      </if>
+      <if test="pfm_phone_number != null">
+        pfm_phone_number,
+      </if>
+      <if test="pfm_user_password != null">
+        pfm_user_password,
+      </if>
+      <if test="pfm_user_type_id != null">
+        pfm_user_type_id,
+      </if>
+      
+      
+      <if test="pfm_register_time != null">
+        pfm_register_time,
+      </if>
+      <if test="pfm_last_login_time != null">
+        pfm_last_login_time,
+      </if>
+      <if test="pfm_is_online != null">
+        pfm_is_online,
+      </if>
+      <if test="pfm_register_address != null">
+        pfm_register_address,
+      </if>
+      
+      
+      <if test="pfm_last_login_mac != null">
+        pfm_last_login_mac,
+      </if>
+      <if test="pfm_register_model != null">
+        pfm_register_model,
+      </if>
+      <if test="pfm_phone_uid != null">
+        pfm_phone_uid,
+      </if>
+      <if test="pfm_update_time != null">
+        pfm_update_time,
+      </if>
+      
+      
+      <if test="pfm_get_msg_time != null">
+        pfm_get_msg_time,
+      </if>
+      <if test="pfm_emil_addr != null">
+        pfm_emil_addr,
+      </if>
+      
+      <if test="pfm_is_disable != null">
+        pfm_is_disable,
+      </if>
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+    
+      <if test="pfm_user_name != null">
+        #{pfm_user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="pfm_phone_number != null">
+        #{pfm_phone_number,jdbcType=VARCHAR},
+      </if>
+      <if test="pfm_user_password != null">
+        #{pfm_user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="pfm_user_type_id != null">
+        #{pfm_user_type_id,jdbcType=INTEGER},
+      </if>
+      
+      
+      <if test="pfm_register_time != null">
+        #{pfm_register_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pfm_last_login_time != null">
+       FROM_UNIXTIME(#{pfm_last_login_time}/1000, '%Y-%m-%d %H:%i:%S'),
+      </if>
+      <if test="pfm_is_online != null">
+        #{pfm_is_online,jdbcType=VARCHAR},
+      </if>
+      <if test="pfm_register_address != null">
+        #{pfm_register_address,jdbcType=VARCHAR},
+      </if>
+      
+      
+      <if test="pfm_last_login_mac != null">
+        #{pfm_last_login_mac,jdbcType=VARCHAR},
+      </if>
+      <if test="pfm_register_model != null">
+        #{pfm_register_model,jdbcType=VARCHAR},
+      </if>
+      <if test="pfm_phone_uid != null">
+        #{pfm_phone_uid,jdbcType=VARCHAR},
+      </if>
+      <if test="pfm_update_time != null">
+        #{pfm_update_time,jdbcType=VARCHAR},
+      </if>
+      
+      
+      <if test="pfm_get_msg_time != null">
+         FROM_UNIXTIME(#{pfm_get_msg_time}/1000, '%Y-%m-%d %H:%i:%S'),
+      </if>
+      <if test="pfm_emil_addr != null">
+        #{pfm_emil_addr,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="pfm_is_disable != null">
+         #{pfm_is_disable},
+      </if>
+      
+    </trim>
+  </insert>
+  
+   <update id="updatePfmUser" parameterType="com.hailong.base.entity.PfmUsers">
+    update pfm_users
+    <set>
+      <if test="pfm_user_password != null">
+        pfm_user_password = #{pfm_phone_number,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="pfm_user_name != null">
+        pfm_user_name = #{pfm_user_name,jdbcType=VARCHAR},
+      </if>
+      
+       <if test="pfm_update_time != null">
+        pfm_update_time = FROM_UNIXTIME(#{pfm_update_time}/1000, '%Y-%m-%d %H:%i:%S'),,
+      </if>
+    </set>
+    where pfm_phone_number = #{pfm_phone_number,jdbcType=VARCHAR}
+  </update>
+</mapper>

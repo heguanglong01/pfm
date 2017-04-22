@@ -1,0 +1,5 @@
+com\hailong\base\entity\PFMPhoneVeri.class
+com\hailong\base\dao\PfmFeedBackDao.class
+com\hailong\base\entity\BackInfo.class
+com\hailong\base\entity\PfmUsers.class
+com\hailong\base\dao\PFMUserDao.class
